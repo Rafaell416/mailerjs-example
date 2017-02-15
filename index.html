@@ -14,24 +14,24 @@
     <div class="row">
       <div class="col s12 m4 l6 push-l3">
         <div class="card-panel blue lighten-5">
-          <form>
+          <form action="/contact" method="post">
             <div class="row">
               <div class="input-field col s12 ">
                 <i class="material-icons prefix">email</i>
-                <input id="email" type="email" class="validate">
+                <input id="email" type="email" name="email" class="validate">
                 <label for="email">Correo Electrónico</label>
               </div>
             </div>
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons prefix">textsms</i>
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
+                <textarea id="textarea1" class="materialize-textarea" name="msj"></textarea>
                 <label for="textarea1">Dejanos tu mensaje</label>
               </div>
             </div>
             <div class="row">
               <div class="col push-l3">
-                <a class="waves-effect waves-light btn blue">Enviar <i class="material-icons">send</i></a>
+                <a name='submit', type='submit', value='Send', id='submit' class="waves-effect waves-light btn blue">Enviar <i class="material-icons">send</i></a>
               </div>
             </div>
           </form>
@@ -39,7 +39,6 @@
       </div>
     </div>
   </div>
-
 
 
 

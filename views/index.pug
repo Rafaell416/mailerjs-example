@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title MilerJS
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css')
+    link(href='http://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0, user-scalable=no')
+    meta(charset='utf-8')
+  body
+    .container
+      .row
+        .col.s12.m4.l6.push-l3
+          .card-panel.blue.lighten-5
+            form(action='/contact', method='post')
+              .row
+                .input-field.col.s12
+                  i.material-icons.prefix email
+                  input#email.validate(type='email', name='email')
+                  label(for='email') Correo Electrónico
+              .row
+                .input-field.col.s12
+                  i.material-icons.prefix textsms
+                  textarea#textarea1.materialize-textarea(name='msj')
+                  label(for='textarea1') Dejanos tu mensaje
+              .row
+                .col.push-l3
+                  a#submit.waves-effect.waves-light.btn.blue(name='submit', ,='', type='submit', value='Send')
+                    | Enviar 
+                    i.material-icons send
+
+    script(type='text/javascript', src='https://code.jquery.com/jquery-2.1.1.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js')
