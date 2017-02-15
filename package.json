@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Rafaell416/mailerjs-example.git#README",
   "dependencies": {
+    "body-parser": "^1.16.1",
     "express": "^4.14.1",
     "materialize-css": "^0.98.0",
     "nodemailer": "^3.1.1",

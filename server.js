@@ -3,9 +3,12 @@
 const express =  require('express')
 const nodemailer = require('nodemailer')
 const pug = require('pug')
+const bodyParser = require('body-parser')
 const app = express()
 
 app.set('view engine', 'pug')
+
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/contact', (req, res) => {
 	res.render('index')
@@ -26,10 +29,10 @@ app.post('/contact', (req, res) => {
 	})
 
 	let mailOptions = {
-    from: 'royal.v98@gmail.com', // sender address
+    //from: req.body.email, // sender address
     to: 'rvillarreal416@gmail.com', // list of receivers
-    subject: 'nodemailer test', // Subject line
-    text: "req.body.msj" // plain text body
+    subject: 'Tienes un correo de: ' + req.body.email, // Subject line
+    text: req.body.msj  // plain text body
     
 	}
 
