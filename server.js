@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
 	res.send('Go to  /contact   to view the contact form')
 })
 
-app.post('/contact', (req, res) => {
+app.post('/contact',urlencodedParser, (req, res) => {
 
 	let transporter = nodemailer.createTransport({
     service: 'gmail',
