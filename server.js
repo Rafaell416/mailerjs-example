@@ -26,22 +26,19 @@ app.post('/contact', (req, res) => {
 	})
 
 	let mailOptions = {
-    from: req.body.email, // sender address
+    from: 'royal.v98@gmail.com', // sender address
     to: 'rvillarreal416@gmail.com', // list of receivers
     subject: 'nodemailer test', // Subject line
-    text: req.body.msj // plain text body
+    text: "req.body.msj" // plain text body
     
 	}
 
-	smtpTrans.sendMail(mailOpts, (err, res) => {
-      if (err) {
-            res.render('/contact', { title: 'MailerJS', msg: 'Ups, el mensaje no se envió.', err: true, page: '/contact' })
-      }else {
-          res.render('/contact', { title: 'MailerJS', msg: 'Genial! Mensaje enviado.', err: false, page: '/contact' })
-          console.log('sent')
-      }   
-
-    })
+	transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+        return console.log(error)
+    }
+    console.log('Message %s sent: %s', info.messageId, info.response)
+	})
 
 })
 
