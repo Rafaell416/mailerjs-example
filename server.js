@@ -18,13 +18,13 @@ app.get('/', (req, res) => {
 	res.send('Go to  /contact   to view the contact form')
 })
 
-app.post('/contact',urlencodedParser, (req, res) => {
+app.post('/contact', (req, res) => {
 
 	let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'royal.v98@gmail.com',
-        pass: 'la programacion es arte interactivo'
+        user: '',
+        pass: ''
     	}
 	})
 
@@ -37,11 +37,17 @@ app.post('/contact',urlencodedParser, (req, res) => {
 	}
 
 	transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-        return console.log(error)
-    }
-    console.log('Message %s sent: %s', info.messageId, info.response)
-	})
+
+     if (error) {
+          return console.log(error)
+          res.render('index', { txtName: 'Message Not Sent :('})
+      }
+      else {
+          //console.log('Message %s sent: %s', info.messageId, info.response)
+          console.log('Message Sent Sucessfully :)')
+          res.render('index')
+      }
+  })
 
 })
 
